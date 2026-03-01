@@ -22,14 +22,19 @@ body {
   text-align: center;
   margin-bottom: 25px;
   color: #8b2c3f;
-  font-size: 20px;
+  font-size: 22px;
   letter-spacing: 1px;
   animation: fadeIn 2s ease-in-out;
 }
 
+.hint strong {
+  font-weight: normal;
+}
+
 .arrow {
-  font-size: 28px;
+  font-size: 26px;
   display: block;
+  margin-top: 10px;
   animation: bounce 1.5s infinite;
 }
 
@@ -40,8 +45,8 @@ body {
 
 /* Tarjeta */
 .card {
-  width: 380px;          /* MÁS GRANDE */
-  height: 630px;         /* proporción elegante */
+  width: 380px;
+  height: 630px;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 1s ease;
@@ -97,13 +102,13 @@ body {
 
 <body>
 
-<div class="hint" id="hint">
-  Nuestra invitación tiene una sorpresa
-  <span class="arrow">↓ Haz clic para descubrirla ↓</span>
+<div class="hint">
+  Gema y Adrián te han invitado a su boda
+  <span class="arrow">↓ Toca la invitación y déjala cobrar vida ↓</span>
 </div>
 
 <div class="card-container">
-  <div class="card" onclick="flipCard(this)">
+  <div class="card" onclick="this.classList.toggle('flip')">
     <div class="front">
       <img src="frontal.png" alt="Invitación Frente">
     </div>
@@ -112,13 +117,6 @@ body {
     </div>
   </div>
 </div>
-
-<script>
-function flipCard(card) {
-  card.classList.toggle("flip");
-  document.getElementById("hint").style.opacity = "0";
-}
-</script>
 
 </body>
 </html>
