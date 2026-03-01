@@ -24,11 +24,8 @@ body {
   color: #8b2c3f;
   font-size: 22px;
   letter-spacing: 1px;
-  animation: fadeIn 2s ease-in-out;
-}
-
-.hint strong {
-  font-weight: normal;
+  animation: fadeIn 1.5s ease-in-out;
+  transition: opacity 0.4s ease;
 }
 
 .arrow {
@@ -102,13 +99,13 @@ body {
 
 <body>
 
-<div class="hint">
+<div class="hint" id="mainText">
   Gema y Adrián te han invitado a su boda
-  <span class="arrow">↓ Toca la invitación y déjala cobrar vida ↓</span>
+  <span class="arrow">↓ Toca la invitación para descubrir más ↓</span>
 </div>
 
 <div class="card-container">
-  <div class="card" onclick="this.classList.toggle('flip')">
+  <div class="card" onclick="flipCard(this)">
     <div class="front">
       <img src="frontal.png" alt="Invitación Frente">
     </div>
@@ -117,6 +114,26 @@ body {
     </div>
   </div>
 </div>
+
+<script>
+function flipCard(card) {
+  card.classList.toggle("flip");
+
+  const text = document.getElementById("mainText");
+
+  if (card.classList.contains("flip")) {
+    text.innerHTML = `
+      Nos encantaría verte allí en nuestro día más importante
+      <span class="arrow">↓ Vuelve a tocar para regresar ↓</span>
+    `;
+  } else {
+    text.innerHTML = `
+      Gema y Adrián te han invitado a su boda
+      <span class="arrow">↓ Toca la invitación para descubrir más ↓</span>
+    `;
+  }
+}
+</script>
 
 </body>
 </html>
